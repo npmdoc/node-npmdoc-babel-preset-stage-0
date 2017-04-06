@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"babel-preset-stage-0",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "babel-preset-stage-0",
+    "description": "api documentation for [babel-preset-stage-0 (v6.22.0)](https://babeljs.io/) [![npm package](https://img.shields.io/npm/v/npmdoc-babel-preset-stage-0.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-babel-preset-stage-0) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0.svg)](https://travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0)",
     "devDependencies": {
         "babel-preset-stage-0": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-babel-preset-stage-0",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-babel-preset-stage-0",
+    "keywords": [
+        "documentation",
+        "babel-preset-stage-0"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_babel_preset_stage_0.js",
+    "name": "npmdoc-babel-preset-stage-0",
+    "nameAlias": "npmdoc_babel_preset_stage_0",
+    "nameOriginal": "npmdoc-babel-preset-stage-0",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-babel-preset-stage-0"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
