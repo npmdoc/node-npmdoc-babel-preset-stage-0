@@ -1,0 +1,215 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://babeljs.io/"
+
+    >babel-preset-stage-0 (v6.22.0)</a>
+</h1>
+<h4>Babel preset for stage 0 plugins</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.babel-preset-stage-0">module babel-preset-stage-0</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">babel-preset-stage-0.</span>plugins</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">babel-preset-stage-0.</span>presets</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.babel-preset-stage-0.plugins">module babel-preset-stage-0.plugins</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.babel-preset-stage-0.plugins.0">
+            function <span class="apidocSignatureSpan">babel-preset-stage-0.plugins.</span>0
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.babel-preset-stage-0.plugins.1">
+            function <span class="apidocSignatureSpan">babel-preset-stage-0.plugins.</span>1
+            <span class="apidocSignatureSpan">(_ref)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.babel-preset-stage-0" id="apidoc.module.babel-preset-stage-0">module babel-preset-stage-0</a></h1>
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.babel-preset-stage-0.plugins" id="apidoc.module.babel-preset-stage-0.plugins">module babel-preset-stage-0.plugins</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.babel-preset-stage-0.plugins.0" id="apidoc.element.babel-preset-stage-0.plugins.0">
+        function <span class="apidocSignatureSpan">babel-preset-stage-0.plugins.</span>0
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">0 = function () {
+  return {
+    inherits: require(&#x22;babel-plugin-syntax-do-expressions&#x22;),
+
+    visitor: {
+      DoExpression: function DoExpression(path) {
+        var body = path.node.body.body;
+        if (body.length) {
+          path.replaceWithMultiple(body);
+        } else {
+          path.replaceWith(path.scope.buildUndefinedNode());
+        }
+      }
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.babel-preset-stage-0.plugins.1" id="apidoc.element.babel-preset-stage-0.plugins.1">
+        function <span class="apidocSignatureSpan">babel-preset-stage-0.plugins.</span>1
+        <span class="apidocSignatureSpan">(_ref)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">1 = function (_ref) {
+  var t = _ref.types;
+
+  function getTempId(scope) {
+    var id = scope.path.getData(&#x22;functionBind&#x22;);
+    if (id) return id;
+
+    id = scope.generateDeclaredUidIdentifier(&#x22;context&#x22;);
+    return scope.path.setData(&#x22;functionBind&#x22;, id);
+  }
+
+  function getStaticContext(bind, scope) {
+    var object = bind.object || bind.callee.object;
+    return scope.isStatic(object) &#x26;&#x26; object;
+  }
+
+  function inferBindContext(bind, scope) {
+    var staticContext = getStaticContext(bind, scope);
+    if (staticContext) return staticContext;
+
+    var tempId = getTempId(scope);
+    if (bind.object) {
+      bind.callee = t.sequenceExpression([t.assignmentExpression(&#x22;=&#x22;, tempId, bind.object), bind.callee]);
+    } else {
+      bind.callee.object = t.assignmentExpression(&#x22;=&#x22;, tempId, bind.callee.object);
+    }
+    return tempId;
+  }
+
+  return {
+    inherits: require(&#x22;babel-plugin-syntax-function-bind&#x22;),
+
+    visitor: {
+      CallExpression: function CallExpression(_ref2) {
+        var node = _ref2.node,
+            scope = _ref2.scope;
+
+        var bind = node.callee;
+        if (!t.isBindExpression(bind)) return;
+
+        var context = inferBindContext(bind, scope);
+        node.callee = t.memberExpression(bind.callee, t.identifier(&#x22;call&#x22;));
+        node.arguments.unshift(context);
+      },
+      BindExpression: function BindExpression(path) {
+        var node = path.node,
+            scope = path.scope;
+
+        var context = inferBindContext(node, scope);
+        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier(&#x22;bind&#x22;)), [context]));
+      }
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
