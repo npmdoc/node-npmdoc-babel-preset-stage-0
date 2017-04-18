@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://babeljs.io/"
-
-    >babel-preset-stage-0 (v6.24.1)</a>
+    <a href="https://babeljs.io/">babel-preset-stage-0 (v6.24.1)</a>
 </h1>
 <h4>Babel preset for stage 0 plugins</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.babel-preset-stage-0">module babel-preset-stage-0</a><ol>
 
@@ -156,7 +149,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">plugins.0 = function () {
   return {
-    inherits: require(&#x22;babel-plugin-syntax-do-expressions&#x22;),
+    inherits: require("babel-plugin-syntax-do-expressions"),
 
     visitor: {
       DoExpression: function DoExpression(path) {
@@ -186,16 +179,16 @@
   var t = _ref.types;
 
   function getTempId(scope) {
-    var id = scope.path.getData(&#x22;functionBind&#x22;);
+    var id = scope.path.getData("functionBind");
     if (id) return id;
 
-    id = scope.generateDeclaredUidIdentifier(&#x22;context&#x22;);
-    return scope.path.setData(&#x22;functionBind&#x22;, id);
+    id = scope.generateDeclaredUidIdentifier("context");
+    return scope.path.setData("functionBind", id);
   }
 
   function getStaticContext(bind, scope) {
     var object = bind.object || bind.callee.object;
-    return scope.isStatic(object) &#x26;&#x26; object;
+    return scope.isStatic(object) &amp;&amp; object;
   }
 
   function inferBindContext(bind, scope) {
@@ -204,15 +197,15 @@
 
     var tempId = getTempId(scope);
     if (bind.object) {
-      bind.callee = t.sequenceExpression([t.assignmentExpression(&#x22;=&#x22;, tempId, bind.object), bind.callee]);
+      bind.callee = t.sequenceExpression([t.assignmentExpression("=", tempId, bind.object), bind.callee]);
     } else {
-      bind.callee.object = t.assignmentExpression(&#x22;=&#x22;, tempId, bind.callee.object);
+      bind.callee.object = t.assignmentExpression("=", tempId, bind.callee.object);
     }
     return tempId;
   }
 
   return {
-    inherits: require(&#x22;babel-plugin-syntax-function-bind&#x22;),
+    inherits: require("babel-plugin-syntax-function-bind"),
 
     visitor: {
       CallExpression: function CallExpression(_ref2) {
@@ -223,7 +216,7 @@
         if (!t.isBindExpression(bind)) return;
 
         var context = inferBindContext(bind, scope);
-        node.callee = t.memberExpression(bind.callee, t.identifier(&#x22;call&#x22;));
+        node.callee = t.memberExpression(bind.callee, t.identifier("call"));
         node.arguments.unshift(context);
       },
       BindExpression: function BindExpression(path) {
@@ -231,7 +224,7 @@
             scope = path.scope;
 
         var context = inferBindContext(node, scope);
-        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier(&#x22;bind&#x22;)), [context]));
+        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier("bind")), [context]));
       }
     }
   };
@@ -259,7 +252,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">0 = function () {
   return {
-    inherits: require(&#x22;babel-plugin-syntax-do-expressions&#x22;),
+    inherits: require("babel-plugin-syntax-do-expressions"),
 
     visitor: {
       DoExpression: function DoExpression(path) {
@@ -289,16 +282,16 @@
   var t = _ref.types;
 
   function getTempId(scope) {
-    var id = scope.path.getData(&#x22;functionBind&#x22;);
+    var id = scope.path.getData("functionBind");
     if (id) return id;
 
-    id = scope.generateDeclaredUidIdentifier(&#x22;context&#x22;);
-    return scope.path.setData(&#x22;functionBind&#x22;, id);
+    id = scope.generateDeclaredUidIdentifier("context");
+    return scope.path.setData("functionBind", id);
   }
 
   function getStaticContext(bind, scope) {
     var object = bind.object || bind.callee.object;
-    return scope.isStatic(object) &#x26;&#x26; object;
+    return scope.isStatic(object) &amp;&amp; object;
   }
 
   function inferBindContext(bind, scope) {
@@ -307,15 +300,15 @@
 
     var tempId = getTempId(scope);
     if (bind.object) {
-      bind.callee = t.sequenceExpression([t.assignmentExpression(&#x22;=&#x22;, tempId, bind.object), bind.callee]);
+      bind.callee = t.sequenceExpression([t.assignmentExpression("=", tempId, bind.object), bind.callee]);
     } else {
-      bind.callee.object = t.assignmentExpression(&#x22;=&#x22;, tempId, bind.callee.object);
+      bind.callee.object = t.assignmentExpression("=", tempId, bind.callee.object);
     }
     return tempId;
   }
 
   return {
-    inherits: require(&#x22;babel-plugin-syntax-function-bind&#x22;),
+    inherits: require("babel-plugin-syntax-function-bind"),
 
     visitor: {
       CallExpression: function CallExpression(_ref2) {
@@ -326,7 +319,7 @@
         if (!t.isBindExpression(bind)) return;
 
         var context = inferBindContext(bind, scope);
-        node.callee = t.memberExpression(bind.callee, t.identifier(&#x22;call&#x22;));
+        node.callee = t.memberExpression(bind.callee, t.identifier("call"));
         node.arguments.unshift(context);
       },
       BindExpression: function BindExpression(path) {
@@ -334,7 +327,7 @@
             scope = path.scope;
 
         var context = inferBindContext(node, scope);
-        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier(&#x22;bind&#x22;)), [context]));
+        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier("bind")), [context]));
       }
     }
   };
@@ -358,7 +351,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">0 = function () {
   return {
-    inherits: require(&#x22;babel-plugin-syntax-do-expressions&#x22;),
+    inherits: require("babel-plugin-syntax-do-expressions"),
 
     visitor: {
       DoExpression: function DoExpression(path) {
@@ -393,16 +386,16 @@
   var t = _ref.types;
 
   function getTempId(scope) {
-    var id = scope.path.getData(&#x22;functionBind&#x22;);
+    var id = scope.path.getData("functionBind");
     if (id) return id;
 
-    id = scope.generateDeclaredUidIdentifier(&#x22;context&#x22;);
-    return scope.path.setData(&#x22;functionBind&#x22;, id);
+    id = scope.generateDeclaredUidIdentifier("context");
+    return scope.path.setData("functionBind", id);
   }
 
   function getStaticContext(bind, scope) {
     var object = bind.object || bind.callee.object;
-    return scope.isStatic(object) &#x26;&#x26; object;
+    return scope.isStatic(object) &amp;&amp; object;
   }
 
   function inferBindContext(bind, scope) {
@@ -411,15 +404,15 @@
 
     var tempId = getTempId(scope);
     if (bind.object) {
-      bind.callee = t.sequenceExpression([t.assignmentExpression(&#x22;=&#x22;, tempId, bind.object), bind.callee]);
+      bind.callee = t.sequenceExpression([t.assignmentExpression("=", tempId, bind.object), bind.callee]);
     } else {
-      bind.callee.object = t.assignmentExpression(&#x22;=&#x22;, tempId, bind.callee.object);
+      bind.callee.object = t.assignmentExpression("=", tempId, bind.callee.object);
     }
     return tempId;
   }
 
   return {
-    inherits: require(&#x22;babel-plugin-syntax-function-bind&#x22;),
+    inherits: require("babel-plugin-syntax-function-bind"),
 
     visitor: {
       CallExpression: function CallExpression(_ref2) {
@@ -430,7 +423,7 @@
         if (!t.isBindExpression(bind)) return;
 
         var context = inferBindContext(bind, scope);
-        node.callee = t.memberExpression(bind.callee, t.identifier(&#x22;call&#x22;));
+        node.callee = t.memberExpression(bind.callee, t.identifier("call"));
         node.arguments.unshift(context);
       },
       BindExpression: function BindExpression(path) {
@@ -438,7 +431,7 @@
             scope = path.scope;
 
         var context = inferBindContext(node, scope);
-        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier(&#x22;bind&#x22;)), [context]));
+        path.replaceWith(t.callExpression(t.memberExpression(node.callee, t.identifier("bind")), [context]));
       }
     }
   };
@@ -455,3 +448,4 @@
     ]
 </div>
 </div>
+</body></html>
