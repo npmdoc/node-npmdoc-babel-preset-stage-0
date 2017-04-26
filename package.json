@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "babel-preset-stage-0",
-    "description": "#### api documentation for  [babel-preset-stage-0 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-babel-preset-stage-0.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-babel-preset-stage-0) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0.svg)](https://travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0)",
+    "description": "#### basic api documentation for  [babel-preset-stage-0 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-babel-preset-stage-0.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-babel-preset-stage-0) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0.svg)](https://travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0)",
     "devDependencies": {
         "babel-preset-stage-0": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.2"
+    "version": "2017.4.26"
 }

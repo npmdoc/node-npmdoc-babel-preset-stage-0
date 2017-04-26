@@ -1,6 +1,6 @@
 # npmdoc-babel-preset-stage-0
 
-#### api documentation for  [babel-preset-stage-0 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-babel-preset-stage-0.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-babel-preset-stage-0) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0.svg)](https://travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0)
+#### basic api documentation for  [babel-preset-stage-0 (v6.24.1)](https://babeljs.io/)  [![npm package](https://img.shields.io/npm/v/npmdoc-babel-preset-stage-0.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-babel-preset-stage-0) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0.svg)](https://travis-ci.org/npmdoc/node-npmdoc-babel-preset-stage-0)
 
 #### Babel preset for stage 0 plugins
 
@@ -66,7 +66,8 @@
         "url": "https://github.com/babel/babel/tree/master/packages/babel-preset-stage-0"
     },
     "scripts": {},
-    "version": "6.24.1"
+    "version": "6.24.1",
+    "bin": {}
 }
 ```
 
